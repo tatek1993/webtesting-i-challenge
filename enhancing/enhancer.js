@@ -6,11 +6,25 @@ module.exports = {
 };
 
 function succeed(item) {
-  return { ...item };
+  return { ...item,
+    enhancement: (item.enhancement > 20) ? item.enhancement++ : 20
+   
+  };
 }
 
 function fail(item) {
-  return { ...item };
+  
+  if(item.enhancement > 16) {
+    item.enhancement--;
+  };
+  
+  if(item.enhancement < 15) {
+    item.durability - 5;
+  } else {
+      item.durability - 10;
+  };
+  
+  return item;
 }
 
 function repair(item) {
