@@ -47,8 +47,26 @@ describe('enhancer.js', function() {
             // expect(enhancer.fail({enhancement: 10, durability: 50}).durability).toBe(56); 
 
             expect(enhancer.fail({enhancement: 10, durability: 50}).durability).toBe(45);
-            expect(enhancer.fail({enhancement: 14, durability: 78}).durability).toBe(73);  
+            expect(enhancer.fail({enhancement: 14, durability: 78}).durability).toBe(73);
+            expect(enhancer.fail({enhancement: 3, durability: 12}).durability).toBe(7); 
+            expect(enhancer.fail({enhancement: 8, durability: 32}).durability).toBe(27);   
 
+        });
+
+        it('should decrease the durability by 10 if the enhancement is greater than or equal to 15 ', function() {
+
+            // expect(enhancer.fail({enhancement: 16, durability: 50}).durability).toBe(45);
+
+            expect(enhancer.fail({enhancement: 16, durability: 50}).durability).toBe(40);
+            expect(enhancer.fail({enhancement: 15, durability: 74}).durability).toBe(64);
+            expect(enhancer.fail({enhancement: 18, durability: 96}).durability).toBe(86);
+
+        });
+
+        it('should decrease the enhancement by one if it is over 16', function() {
+            // expect(enhancer.fail({enhancement: 18}).enhancement).toBe(19);
+            expect(enhancer.fail({enhancement: 18}).enhancement).toBe(17);
+            expect(enhancer.fail({enhancement: 17}).enhancement).toBe(16);
         })
     })
 })
